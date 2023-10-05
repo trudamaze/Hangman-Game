@@ -1,0 +1,18 @@
+<div class="container">
+    <div>
+        <mat-grid-list cols="{{solution.word.length}}" rowHeight="100px">
+            <mat-grid-tile *ngFor="let letter of lettersKnown"><div>{{letter}}</div></mat-grid-tile>
+            <mat-grid-tile *ngFor="let letter of lettersToGuess"><div></div></mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="this-form">
+        <form>
+            <mat-form-field class="field" appearance="fill" color="accent">
+                <input matInput placeholder="Enter a letter" type="text" maxlength="1" required #input>               
+            </mat-form-field>                  
+            <button mat-button style="background-color:red; color:white" (click)="newInput(input.value)">CONFIRM</button>
+            <br>
+            <mat-hint *ngIf="input.value == ' ' " style="color:red; font-size: 12px;">Space is not a letter you dummy, press Backspace</mat-hint>
+        </form>
+    </div>
+</div>

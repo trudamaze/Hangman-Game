@@ -1,0 +1,13 @@
+<div class="container">
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile id="lives-container">
+            <h2 >Lives :</h2>
+                <mat-icon *ngFor="let live of lives">{{live}}</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h2>Category:</h2>
+                <div>{{solution.category}}</div>
+                <img mat-card-image src="{{solution.imagePath}}" alt="fruits image">
+        </mat-grid-tile>
+    </mat-grid-list>  
+</div>

@@ -25,7 +25,6 @@ export class GameContextComponent implements OnInit {
       /*this.chooseWordService.getCurrentSolution().subscribe(value => {
         this.solution = value;
       });*/
-      console.log("solutia din game context: " + this.solution.word + "," + this.solution.category+ "," + this.solution.imagePath);
      }
 
   ngOnInit(): void {
@@ -35,6 +34,7 @@ export class GameContextComponent implements OnInit {
         /*!!!*/
         this.chooseWordService.getCurrentSolution().subscribe(value => {
           this.solution = value;
+          console.log("solutia din game context onInit: " + this.solution.word + "," + this.solution.category+ "," + this.solution.imagePath);
         });
       }
       if(value.fullLife < 5){
@@ -43,13 +43,13 @@ export class GameContextComponent implements OnInit {
       if(value.fullLife === 0){
         this.openDialog();
       }
-      if(value.solutionIsSolved === true){
+      /*if(value.solutionIsSolved === true){
         this.chooseWordService.getCurrentSolution().subscribe(value => {
           this.solution = value;
         });
 
         this.updateContextService.setValue(5, false);
-      }
+      }*/
     });
   }
   

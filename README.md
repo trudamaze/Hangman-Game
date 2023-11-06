@@ -20,6 +20,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
+## !!! IMPORTANT copy content from one branch to another which don't have common history:
+git switch branch1  
+git pull  
+git push origin branch1:branch2 --force-with-lease  #assume the remote name is origin  
+git branch -f branch2 origin/branch2  #reset the local branch branch2 
+
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help

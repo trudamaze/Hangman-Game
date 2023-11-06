@@ -60,7 +60,7 @@ export class ChooseWordService {
     //this.currentSolution = this.solutionArray[Math.floor(Math.random() * 5)];
     this.currentSolution = this.solutionArray[this.ct];
     this.ct++;
-    console.log('se creeaza solutie noua:' + this.currentSolution.category, this.currentSolution.word, this.currentSolution.imagePath);
+    
     this.subject.next(this.currentSolution);
   }
 

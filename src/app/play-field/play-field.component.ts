@@ -24,21 +24,11 @@ export class PlayFieldComponent implements OnInit {
 
   constructor(private updateContextService: UpdateContextService, private chooseWordService: ChooseWordService,
     private dialog: MatDialog) { 
-    /*chooseWordService.getCurrentSolution().subscribe(value => {
-      this.solution = value;
-    });
-    console.log("solutia din play field: " + this.solution.word + "," + this.solution.category+ "," + this.solution.imagePath);
-    this.lettersKnown[0] = this.solution.word[0];
-
-    for(let i = 0; i < this.solution.word.length-1; i++){
-      this.lettersToGuess[i] = this.solution.word[i+1];
-    }*/
   }
 
   ngOnInit(): void {
     this.updateContextService.getValue().subscribe(value => {
       if(value.fullLife === 5 && value.solutionIsSolved === false){
-        console.log("solutia la play field onInit");
         this.resetGame();
       }
     });
@@ -76,10 +66,7 @@ export class PlayFieldComponent implements OnInit {
       this.solution = value;
     });
 
-    this.life = 5;
-    //this.updateContextService.setValue(this.life, false);
-
-    console.log("solutia la reset game: " + this.solution.word + "," + this.solution.category+ "," + this.solution.imagePath);
+    this.life = 5; 
     
     this.lettersKnown[0] = this.solution.word[0];
 
@@ -95,7 +82,6 @@ export class PlayFieldComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("solutia la close dialog");
       this.resetGame();
 
       this.updateContextService.setValue(this.life, false);

@@ -22,19 +22,15 @@ export class GameContextComponent implements OnInit {
 
   constructor(private updateContextService: UpdateContextService, private chooseWordService: ChooseWordService, 
     private dialog: MatDialog) {
-      /*this.chooseWordService.getCurrentSolution().subscribe(value => {
-        this.solution = value;
-      });*/
      }
 
   ngOnInit(): void {
     this.updateContextService.getValue().subscribe(value => {
       if(value.fullLife === 5){
         this.lives = ['favorite', 'favorite', 'favorite', 'favorite', 'favorite'];
-        /*!!!*/
+
         this.chooseWordService.getCurrentSolution().subscribe(value => {
-          this.solution = value;
-          console.log("solutia din game context onInit: " + this.solution.word + "," + this.solution.category+ "," + this.solution.imagePath);
+          this.solution = value;   
         });
       }
       if(value.fullLife < 5){
@@ -43,13 +39,6 @@ export class GameContextComponent implements OnInit {
       if(value.fullLife === 0){
         this.openDialog();
       }
-      /*if(value.solutionIsSolved === true){
-        this.chooseWordService.getCurrentSolution().subscribe(value => {
-          this.solution = value;
-        });
-
-        this.updateContextService.setValue(5, false);
-      }*/
     });
   }
   
